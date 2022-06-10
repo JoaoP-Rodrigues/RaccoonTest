@@ -1,4 +1,3 @@
-import pandas as pd
 
 def getListPurchases(list_compras):
 
@@ -148,7 +147,7 @@ def getPurchasesCompetitors(ingressos, purchases, shows):
 
     tickets_with_competitors = {}
     i = 0
-    '''for p in purchases:
+    for p in purchases:
 
         teste = shows.get(p[1])
         print(type(teste))
@@ -157,7 +156,7 @@ def getPurchasesCompetitors(ingressos, purchases, shows):
 
         i += 1
         print(type(teste))
-        for nome, dias in não_finalizados.items():
+        '''for nome, dias in não_finalizados.items():
 
             dia_gastos = shows.get(p[1]) #.get('dia')
 
@@ -199,29 +198,9 @@ def getPurchasesCompetitors(ingressos, purchases, shows):
                     tickets_with_competitors[not_bought[i][0]].append(not_bought[i][1])
 
             i += 1
+
+
+
+
     
     '''
-
-def getBiggestSpending(compras, shows):
-    df_compras = pd.DataFrame(compras[1:], columns=compras[0])
-    df_compras['gastos'] = df_compras['gastos'].astype("float")
-
-    list_shows = []
-    for show, datas in shows.items():
-        show_temp = []
-        show_temp.append(show)
-        show_temp.append(str(datas['dia']))
-        gastos_dia = df_compras.loc[df_compras['show'] == show, 'gastos'].sum()
-        show_temp.append(gastos_dia)
-        list_shows.append(show_temp)
-
-    colunas = ['Nome_Show', 'Dia_Show', 'Total_de_Gastos']
-    df_total_compras = pd.DataFrame(list_shows, columns=colunas).sort_values(by=['Total_de_Gastos'], ascending=False).reset_index(drop=True)
-
-    dia_maior_gastos = df_total_compras.iloc[0]
-    print('\n-------- Dia de Maior gastos --------')
-    print('-' * 40)
-    print('Dia: ', dia_maior_gastos[1])
-    print('Show: ', dia_maior_gastos[0])
-    print('Total Gasto: ', dia_maior_gastos[2])
-    print('-' * 40)
