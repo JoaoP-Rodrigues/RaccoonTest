@@ -18,7 +18,6 @@ list_purchases = file_compras.read()
 all_purchases = getListPurchases(list_purchases)
 
 # Start the iteration with the User.
-
 print("Olá! Esse é um projeto de engenharia de dados, nível estágio.\nAqui posso responder as seguintes questões...")
 
 # Infinite loop to answer any question how much times the user want to.
